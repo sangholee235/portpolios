@@ -153,7 +153,7 @@ const ReportPage: React.FC = () => {
 
   return (
     <motion.div
-      className="max-w-[65vw] mx-auto"
+      className="max-w-[95vw] md:max-w-[80vw] lg:max-w-[65vw] mx-auto px-4 lg:px-0"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
@@ -177,7 +177,7 @@ const ReportPage: React.FC = () => {
 
       {/* 날짜 선택 & 버튼 영역 */}
       <motion.div
-        className="flex items-center gap-4 mb-6"
+        className="flex flex-col sm:flex-row flex-wrap items-start sm:items-center gap-3 mb-6"
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.3 }}
@@ -239,7 +239,7 @@ const ReportPage: React.FC = () => {
         {reportData && (
           <>
             <motion.div /* 총 로그 개요 */
-              className="grid grid-cols-3 gap-4 mb-6"
+              className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
@@ -264,7 +264,7 @@ const ReportPage: React.FC = () => {
             </motion.div>
 
             <motion.div /* 로그 레벨 분포 & 로그 발생 추이 */
-              className="grid grid-cols-2 gap-6"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.45 }}
@@ -292,7 +292,7 @@ const ReportPage: React.FC = () => {
             </motion.div>
 
             <motion.div /* 에러 TOP3 & 느린 API TOP3 */
-              className="grid grid-cols-2 gap-6 mt-6"
+              className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}

@@ -62,7 +62,7 @@ export default function ArchiveListPage() {
 
   return (
     <motion.div
-      className="max-w-[65vw] mx-auto"
+      className="max-w-[95vw] md:max-w-[80vw] lg:max-w-[65vw] mx-auto px-4 lg:px-0"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}

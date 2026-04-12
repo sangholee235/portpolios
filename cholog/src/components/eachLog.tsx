@@ -83,7 +83,23 @@ export default function EachLog({
 
   return (
     <div className={containerClass} onClick={handleclick}>
-      <div className="grid grid-cols-8 text-[14px] text-[var(--text)]">
+      {/* Mobile layout */}
+      <div className="flex flex-col gap-1 sm:hidden text-[13px] text-[var(--text)]">
+        <div className="flex items-center gap-2">
+          <div className={`${levelCircle} w-3 h-3 rounded-full shrink-0`}></div>
+          <span className="font-semibold">{level}</span>
+          <span className="text-[var(--helpertext)] text-xs ml-auto">{formattedTime}</span>
+        </div>
+        <div className="truncate text-[var(--text)]">{message}</div>
+        <div className="flex gap-2 text-xs text-[var(--helpertext)]">
+          <span>{source}</span>
+          <span>·</span>
+          <span>{environment}</span>
+        </div>
+      </div>
+
+      {/* Desktop layout */}
+      <div className="hidden sm:grid grid-cols-8 text-[14px] text-[var(--text)]">
         {/* 로그 레벨 */}
         <div className="col-span-1 flex flex-row justify-start items-center shrink-0 w-20 gap-2">
           <div className={`${levelCircle} w-4 h-4 rounded-full`}></div>

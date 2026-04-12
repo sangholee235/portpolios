@@ -80,7 +80,7 @@ const ProjectPage = () => {
 
   return (
     <motion.div
-      className="w-full min-w-[320px] max-w-[65vw] mx-auto px-4 lg:px-0"
+      className="w-full min-w-[320px] max-w-[95vw] md:max-w-[80vw] lg:max-w-[65vw] mx-auto px-4 lg:px-0"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}

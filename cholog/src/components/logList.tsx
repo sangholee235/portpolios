@@ -100,7 +100,7 @@ const LogList = ({ logs, pagination }: LogListProps) => {
 
   return (
     <div className="rounded-[24px] border border-[var(--line)]">
-      <div className="flex items-center gap-4 p-6 border-b border-[var(--line)] bg-white/5 rounded-t-2xl">
+      <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 p-4 sm:p-6 border-b border-[var(--line)] bg-white/5 rounded-t-2xl">
         {/* 검색창 */}
         <div className="relative flex-1 h-11">
           <input
@@ -154,63 +154,66 @@ const LogList = ({ logs, pagination }: LogListProps) => {
           </div>
         </div>
 
-        {/* 레벨 셀렉터 */}
-        <select
-          value={selectedLevel}
-          onChange={(e) => setSelectedLevel(e.target.value)}
-          className="h-11 w-24 text-sm px-2 rounded-xl border border-[var(--line)] bg-transparent text-[var(--text)] hover:border-lime-500 focus:outline-none focus:border-lime-500 focus:ring-1 focus:ring-lime-500"
-        >
-          <option value="" className="bg-[var(--nav)]">
-            레벨
-          </option>
-          <option value="TRACE" className="bg-[var(--nav)]">
-            TRACE
-          </option>
-          <option value="DEBUG" className="bg-[var(--nav)]">
-            DEBUG
-          </option>
-          <option value="INFO" className="bg-[var(--nav)]">
-            INFO
-          </option>
-          <option value="WARN" className="bg-[var(--nav)]">
-            WARN
-          </option>
-          <option value="ERROR" className="bg-[var(--nav)]">
-            ERROR
-          </option>
-          <option value="FATAL" className="bg-[var(--nav)]">
-            FATAL
-          </option>
-        </select>
+        {/* 필터 셀렉터 + 검색 버튼 */}
+        <div className="flex gap-3 items-center">
+          {/* 레벨 셀렉터 */}
+          <select
+            value={selectedLevel}
+            onChange={(e) => setSelectedLevel(e.target.value)}
+            className="h-11 flex-1 sm:flex-none sm:w-24 text-sm px-2 rounded-xl border border-[var(--line)] bg-transparent text-[var(--text)] hover:border-lime-500 focus:outline-none focus:border-lime-500 focus:ring-1 focus:ring-lime-500"
+          >
+            <option value="" className="bg-[var(--nav)]">
+              레벨
+            </option>
+            <option value="TRACE" className="bg-[var(--nav)]">
+              TRACE
+            </option>
+            <option value="DEBUG" className="bg-[var(--nav)]">
+              DEBUG
+            </option>
+            <option value="INFO" className="bg-[var(--nav)]">
+              INFO
+            </option>
+            <option value="WARN" className="bg-[var(--nav)]">
+              WARN
+            </option>
+            <option value="ERROR" className="bg-[var(--nav)]">
+              ERROR
+            </option>
+            <option value="FATAL" className="bg-[var(--nav)]">
+              FATAL
+            </option>
+          </select>
 
-        {/* 소스 셀렉터 */}
-        <select
-          value={selectedSource}
-          onChange={(e) => setSelectedSource(e.target.value)}
-          className="h-11 w-24 text-sm px-2 rounded-xl border border-[var(--line)] bg-transparent text-[var(--text)] hover:border-lime-500 focus:outline-none focus:border-lime-500 focus:ring-1 focus:ring-lime-500"
-        >
-          <option value="" className="bg-[var(--nav)]">
-            소스
-          </option>
-          <option value="frontend" className="bg-[var(--nav)]">
-            Frontend
-          </option>
-          <option value="backend" className="bg-[var(--nav)]">
-            Backend
-          </option>
-        </select>
+          {/* 소스 셀렉터 */}
+          <select
+            value={selectedSource}
+            onChange={(e) => setSelectedSource(e.target.value)}
+            className="h-11 flex-1 sm:flex-none sm:w-24 text-sm px-2 rounded-xl border border-[var(--line)] bg-transparent text-[var(--text)] hover:border-lime-500 focus:outline-none focus:border-lime-500 focus:ring-1 focus:ring-lime-500"
+          >
+            <option value="" className="bg-[var(--nav)]">
+              소스
+            </option>
+            <option value="frontend" className="bg-[var(--nav)]">
+              Frontend
+            </option>
+            <option value="backend" className="bg-[var(--nav)]">
+              Backend
+            </option>
+          </select>
 
-        {/* 검색 버튼 */}
-        <button
-          onClick={handleSearch}
-          className="h-11 px-6 bg-lime-500 text-white rounded-xl hover:bg-[#4A8300] transition-all font-medium min-w-[80px] hover:shadow-lg active:transform active:scale-95"
-        >
-          검색
-        </button>
+          {/* 검색 버튼 */}
+          <button
+            onClick={handleSearch}
+            className="h-11 px-6 bg-lime-500 text-white rounded-xl hover:bg-[#4A8300] transition-all font-medium min-w-[70px] hover:shadow-lg active:transform active:scale-95"
+          >
+            검색
+          </button>
+        </div>
       </div>
 
       <div className="p-4 overflow-y-auto">
-        <div className="border-b-[var(--helpertext)] px-4 py-2 border-b-2 border-[var(--line)] grid grid-cols-8 font-[paperlogy6] text-[18px] text-[var(--text)] w-full">
+        <div className="hidden sm:grid border-b-[var(--helpertext)] px-4 py-2 border-b-2 border-[var(--line)] grid-cols-8 font-[paperlogy6] text-[18px] text-[var(--text)] w-full">
           {/* 로그 레벨 */}
           <div className="col-span-1 flex flex-row justify-start items-center shrink-0 w-20 gap-2">
             <div className={`bg-white w-4 h-4 rounded-full`}></div>

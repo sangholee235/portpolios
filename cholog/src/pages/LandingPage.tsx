@@ -33,7 +33,7 @@ function AppContent() {
     <FullpageScroll>
       {/* Section 1: Hero */}
       <FullpageScroll.Section className="bg-white text-black flex flex-col items-center justify-center px-6">
-        <h1 className="text-[5rem] md:text-[7rem] font-extrabold leading-tight text-center tracking-tighter">
+        <h1 className="text-[2.5rem] sm:text-[4rem] md:text-[5.5rem] lg:text-[7rem] font-extrabold leading-tight text-center tracking-tighter">
           <span className="text-[#5EA500]">초</span>보자를 위한
           <br />
           <span className="text-[#5EA500]">로그</span>관리 서비스

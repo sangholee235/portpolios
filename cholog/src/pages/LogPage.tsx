@@ -164,7 +164,7 @@ const LogPage = () => {
   const renderJsonObject = (obj: any) => {
     if (!obj) return null;
     return (
-      <pre className="text-[12px] bg-slate-100 p-2 rounded overflow-x-auto">
+      <pre className="text-[12px] bg-[var(--sub)] border border-[var(--line)] p-2 rounded overflow-x-auto">
         {JSON.stringify(obj, null, 2)}
       </pre>
     );
@@ -175,7 +175,7 @@ const LogPage = () => {
       initial="hidden"
       animate="visible"
       variants={containerVariants}
-      className="w-full max-w-[65vw] mx-auto px-4 lg:px-0"
+      className="w-full max-w-[95vw] md:max-w-[80vw] lg:max-w-[65vw] mx-auto px-4 lg:px-0"
     >
       <ProjectNavBar />
 
@@ -492,7 +492,7 @@ const LogPage = () => {
               </div>
               <motion.div
                 variants={itemVariants}
-                className="max-w-[550px] text-left bg-slate-100/50 p-4 rounded-lg text-[14px] font-[consolaNormal] shadow-sm"
+                className="max-w-[550px] text-left bg-[var(--sub)] border border-[var(--line)] p-4 rounded-lg text-[14px] font-[consolaNormal] shadow-sm"
               >
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-3">
                   {logDetail.event.type && (
@@ -534,7 +534,7 @@ const LogPage = () => {
               </div>
               <motion.div
                 variants={itemVariants}
-                className="max-w-[550px] text-left bg-slate-100/50 p-4 rounded-lg text-[14px] font-[consolaNormal] shadow-sm"
+                className="max-w-[550px] text-left bg-[var(--sub)] border border-[var(--line)] p-4 rounded-lg text-[14px] font-[consolaNormal] shadow-sm"
               >
                 {renderJsonObject(logDetail.payload)}
               </motion.div>
