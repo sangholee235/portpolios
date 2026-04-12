@@ -16,14 +16,14 @@ const ROOT = path.resolve(__dirname, '../../')         // fronts/
 const PORTFOLIO_PUBLIC = path.resolve(__dirname, '../public')
 
 const subProjects = [
-  { name: 'gomin',    dir: path.join(ROOT, 'gomin'),    dest: 'gomin'    },
-  { name: 'techmate', dir: path.join(ROOT, 'frontend'), dest: 'techmate' },
-  { name: 'cholog',   dir: path.join(ROOT, 'cholog'),   dest: 'cholog'   },
+  { name: 'gomin',    dir: path.join(ROOT, 'gomin'),    dest: 'gomin',    env: { VITE_API_BASE_URL: '' } },
+  { name: 'techmate', dir: path.join(ROOT, 'frontend'), dest: 'techmate', env: { VITE_API_BASE_URL: '' } },
+  { name: 'cholog',   dir: path.join(ROOT, 'cholog'),   dest: 'cholog',   env: { VITE_API_BASE_URL: 'https://www.cholog.com' } },
 ]
 
-function run(cmd, cwd) {
+function run(cmd, cwd, extraEnv = {}) {
   console.log(`\n▶ ${cmd}  (in ${path.basename(cwd)})`)
-  execSync(cmd, { cwd, stdio: 'inherit' })
+  execSync(cmd, { cwd, stdio: 'inherit', env: { ...process.env, ...extraEnv } })
 }
 
 function copyDir(src, dest) {
@@ -37,7 +37,7 @@ for (const proj of subProjects) {
   console.log(`  Building: ${proj.name}`)
   console.log('='.repeat(50))
 
-  run('npm run build', proj.dir)
+  run('npm run build', proj.dir, proj.env)
 
   const distDir  = path.join(proj.dir, 'dist')
   const destDir  = path.join(PORTFOLIO_PUBLIC, proj.dest)
