@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "Bash(npm install:*)",
-      "Bash(node scripts/dev-setup.mjs)"
+      "Bash(node scripts/dev-setup.mjs)",
+      "Bash(git -C /Users/user/Documents/Github/fronts remote -v)"
     ]
   }
 }
