@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.env
+.env.local
+.env.*.local
+*.local
+
+# Vite cache
+.vite/
+
+# portfolio 빌드 산출물 (서브 프로젝트 빌드본)
+portfolio/public/gomin/
+portfolio/public/techmate/
+portfolio/public/cholog/
+portfolio/dist/

@@ -1,0 +1,27 @@
+@keyframes modern-tech {
+    0% {
+        transform: perspective(1000px) translateY(0px) rotateX(0deg);
+        filter: drop-shadow(0 0 10px rgba(114,183,202,0.2));
+    }
+    50% {
+        transform: perspective(1000px) translateY(-20px) rotateX(10deg);
+        filter: drop-shadow(0 0 20px rgba(27,44,122,0.4));
+    }
+    100% {
+        transform: perspective(1000px) translateY(0px) rotateX(0deg);
+        filter: drop-shadow(0 0 10px rgba(114,183,202,0.2));
+    }
+}
+
+.tech-logo {
+    animation: modern-tech 3s ease-in-out infinite;
+    transform-origin: center;
+    backface-visibility: hidden;
+}
+
+.tech-logo:hover {
+    animation: none;
+    transform: perspective(1000px) scale(1.1) rotateX(10deg);
+    filter: drop-shadow(0 0 25px rgba(27,44,122,0.5));
+    transition: all 0.3s ease-in-out;
+}

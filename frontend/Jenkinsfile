@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    tools {
+        nodejs 'NodeJS'
+    }
+    
+    // 환경 변수 설정
+    environment {
+        VITE_API_BASE_URL = credentials('VITE_API_BASE_URL') // Jenkins에 등록된 자격 증명 사용
+        VITE_KAKAO_REST_API_KEY = credentials('VITE_KAKAO_REST_API_KEY')
+        VITE_GOOGLE_CLIENT_ID = credentials('VITE_GOOGLE_CLIENT_ID')
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scmGit(branches: [[name: '*/frontend']], extensions: [], userRemoteConfigs: [[credentialsId: 'gitlab-repo-access', url: 'https://lab.ssafy.com/s12-bigdata-recom-sub1/S12P21B201.git']])
+            }
+        }
+        stage('Build') {
+            steps {
+                dir('frontend') {
+                    // 환경 변수를 .env 파일에 저장
+                    sh 'echo "VITE_API_BASE_URL=${VITE_API_BASE_URL}" > .env'
+                    sh 'echo "VITE_KAKAO_REST_API_KEY=${VITE_KAKAO_REST_API_KEY}" > .env'
+                    sh 'echo "VITE_GOOGLE_CLIENT_ID=${VITE_GOOGLE_CLIENT_ID}" > .env'
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+        stage('Deploy to Nginx') {
+            steps {
+                sh '''
+                docker cp frontend/dist/. nginx:/usr/share/nginx/html
+                docker exec nginx nginx -s reload
+                '''
+            }
+        }
+    }
+    post {
+        success {
+            echo 'Frontend deployment successful!'
+        }
+        failure {
+            echo 'Frontend deployment failed!'
+        }
+    }
+}

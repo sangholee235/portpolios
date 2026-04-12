@@ -1,0 +1,21 @@
+{
+  "name": "고민한접시",
+  "short_name": "고민한접시",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "1ogo.ico",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "logo.ico",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "gcm_sender_id": "103953800507"
+}

@@ -1,0 +1,12 @@
+.markdown-container {
+  height: calc(100vh - 2rem);
+}
+
+.markdown-editor {
+  resize: none;
+  padding: 1rem;
+}
+
+.markdown-preview {
+  padding: 1rem;
+}

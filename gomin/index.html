@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-0BBB9S7JHZ"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-0BBB9S7JHZ");
+    </script>
+
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- 링크 공유 썸네일을 위한 메타 태그 추가 -->
+    <meta property="og:title" content="고민 한 접시" />
+    <meta property="og:url" content="https://www.gomin.my/" />
+    <meta
+      property="og:image"
+      content="https://res.cloudinary.com/gominsushi/image/upload/v1739762080/%EA%B3%B5%EC%9C%A0_nssh19.png"
+    />
+    <meta property="og:description" content="내 고민 초밥을 먹어줘🍽️" />
+
+    <!-- 캐시 버스팅을 위한 메타 태그 추가 -->
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+
+    <!-- iOS 지원을 위한 메타 태그 추가 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="고민한접시" />
+    <link rel="apple-touch-icon" href="/icons/apple-icon-180x180.png" />
+
+    <link rel="icon" type="image/svg+xml" href="/1ogo.ico" />
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <title>고민 한 접시</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- 카카오 SDK -->
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      function detectBrowserEnvironment() {
+        const ua = navigator.userAgent;
+        const isWKWebView = window.webkit && window.webkit.messageHandlers;
+        const results = {
+          isIOS: /iPad|iPhone|iPod/.test(ua) && !window.MSStream,
+          isSafari: /^((?!chrome|android).)*safari/i.test(ua),
+          isKakaoTalk: /KAKAOTALK/i.test(ua),
+          isNaver: /NAVER\(inapp/i.test(ua),
+          isInstagram: /Instagram/i.test(ua),
+          isFacebook: /FBAN|FBAV/i.test(ua),
+          isLine: /Line/i.test(ua),
+          isStandalone: window.navigator.standalone === true,
+          isWKWebView: isWKWebView,
+          isIOSInAppBrowser: false,
+        };
+        if (results.isIOS) {
+          results.isIOSInAppBrowser =
+            results.isWKWebView ||
+            results.isKakaoTalk ||
+            results.isNaver ||
+            results.isInstagram ||
+            results.isFacebook ||
+            results.isLine ||
+            (!results.isSafari && !results.isStandalone);
+        }
+        return results.isIOSInAppBrowser;
+      }
+
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          if (!detectBrowserEnvironment()) {
+            navigator.serviceWorker
+              .register("/firebase-messaging-sw.js", { scope: "/" })
+              .then((registration) => {
+                // console.log("서비스 워커가 등록되었습니다:", registration);
+              })
+              .catch((err) => {
+                console.error("서비스 워커 등록 실패:", err);
+              });
+          } else {
+            console.log(
+              "iOS 인앱 브라우저에서는 서비스 워커를 등록하지 않습니다."
+            );
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

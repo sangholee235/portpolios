@@ -1,0 +1,52 @@
+@layer components {
+  /* Button styles */
+  .btn {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors;
+  }
+
+  .btn-primary {
+    @apply btn bg-primary-500 text-white hover:bg-primary-600;
+  }
+
+  .btn-secondary {
+    @apply btn bg-secondary-500 text-white hover:bg-secondary-600;
+  }
+
+  .btn-outline {
+    @apply btn border-2 border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white;
+  }
+
+  /* Text styles */
+  .text-display {
+    @apply text-display font-bold;
+  }
+
+  .text-heading-1 {
+    @apply text-h1 font-bold;
+  }
+
+  .text-heading-2 {
+    @apply text-h2 font-bold;
+  }
+
+  .text-heading-3 {
+    @apply text-h3 font-semibold;
+  }
+
+  .text-heading-4 {
+    @apply text-h4 font-semibold;
+  }
+
+  .text-heading-5 {
+    @apply text-h5 font-semibold;
+  }
+
+  /* Layout styles */
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+
+  .card {
+    @apply bg-white rounded-lg shadow-md p-6;
+  }
+}

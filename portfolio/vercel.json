@@ -1,0 +1,10 @@
+{
+  "rewrites": [
+    { "source": "/gomin/(.*)",    "destination": "/gomin/index.html"    },
+    { "source": "/gomin",         "destination": "/gomin/index.html"    },
+    { "source": "/techmate/(.*)", "destination": "/techmate/index.html" },
+    { "source": "/techmate",      "destination": "/techmate/index.html" },
+    { "source": "/cholog/(.*)",   "destination": "/cholog/index.html"   },
+    { "source": "/cholog",        "destination": "/cholog/index.html"   }
+  ]
+}
