@@ -1,4 +1,7 @@
 {
+  "buildCommand": "cd portfolio && npm install && node scripts/build-all.mjs",
+  "outputDirectory": "portfolio/dist",
+  "installCommand": "npm install --prefix gomin && npm install --prefix frontend && npm install --prefix cholog && npm install --prefix portfolio",
   "rewrites": [
     { "source": "/gomin/(.*)",    "destination": "/gomin/index.html"    },
     { "source": "/gomin",         "destination": "/gomin/index.html"    },
