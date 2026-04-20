@@ -3,7 +3,10 @@
     "allow": [
       "Bash(npm install:*)",
       "Bash(node scripts/dev-setup.mjs)",
-      "Bash(git -C /Users/user/Documents/Github/fronts remote -v)"
+      "Bash(git -C /Users/user/Documents/Github/fronts remote -v)",
+      "Bash(git add:*)",
+      "Bash(git commit -m 'fix: vercel build command to include all sub-projects:*)",
+      "Bash(git push:*)"
     ]
   }
 }
